@@ -7,19 +7,20 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="dark:text-slate-200 dark:bg-black font-mono">
 		<slot />
 	</body>
 </html>
+
 <style is:global>
 	:root {
 		--accent: 136, 58, 234;
@@ -32,20 +33,30 @@ const { title } = Astro.props;
 			white 60%
 		);
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+
+	#bg-gradient{
+        z-index: -1;
+        height: 100vh;
+        pointer-events: none;
+        position: fixed;
+        top: 1px;
+        width: 100vw;
+    }
+
+    #bg-gradient .gradient{
+        height: 100vh;
+        mix-blend-mode: normal;
+        opacity: 0;
+        position: absolute;
+        transition: opacity 1s ease;
+        width: 100vw;
+    }
+
+    #bg-gradient #g-1{
+        background: linear-gradient(45deg, rgba(0,0,0,1) 54%, rgba(255,255,255, 0) 2% , rgba(2,132,199,1) 130%);
+    }
+
+    #bg-gradient #g-2{
+        background: linear-gradient(45deg, rgb(0, 0, 0, 1) 54%, rgba(255,255,255, 0) 2% , rgb(5, 150, 105, 1) 130%);
+    }
 </style>
