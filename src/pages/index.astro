@@ -14,31 +14,111 @@ const title = "Nkymko's Website."
 
     <Nav />
 
-    <main class="container mx-auto max-w-4xl">
-                <section id="introduction" class="mb-52 mx-auto py-5 px-2 mt-32 max-[768px]:mt-10">
+    <main class="container mx-auto max-w-5xl">
+                <section id="introduction" class="mb-64 mx-auto px-2 mt-32 max-[768px]:mt-10">
 					<div class="flex flex-wrap">
-						<div class="basis-3/4 py-2 border-t-[1px] border-t-[#dedede] max-[768px]:border-0">
-                            <h1 class="text-6xl mt-8 mb-16 max-[768px]:text-4xl max-[768px]:mb-8 max-[768px]:leading-10">Hi, I'm <span class="font-bold underline">Nicky</span>! <br> I'm a Junior Website Developer</h1>
+						<div class="max-[768px]:border-0">
+                            <h1 class="text-7xl mt-8 mb-16 max-[768px]:text-4xl max-[768px]:mb-8 max-[768px]:leading-10">Hi, I'm <span class="font-bold underline">Nicky</span>! <br> I'm a Junior Website Developer</h1>
 							<div id="btn-grp" class="flex flex-wrap gap-2">
-								<a href="#" class="py-4 px-5 border border-sky-600 text-sm hover:bg-sky-600 transition ease-in-out duration-300">Check out my resume</a>
-								<a href="#" class="py-4 px-5 border border-sky-600 bg-sky-600 text-sm hover:bg-sky-800 hover:border-sky-800 transition ease-in-out duration-300">Contact Info</a>
+								<a href="#" class="py-4 px-5 border border-sky-600  hover:bg-sky-600 transition ease-in-out duration-300">Check out my resume</a>
+								<!-- <a href="#" class="py-4 px-5 border border-sky-600 bg-sky-600 text-sm hover:bg-sky-800 hover:border-sky-800 transition ease-in-out duration-300">Contact Info</a> -->
 							</div>
                         </div>
 					</div>
                 </section>
         
-                <section id="about" class="mx-auto py-5 px-2 mt-16 max-[768px]:mt-10">
+                <section id="about" class="mx-auto mb-20 py-5 px-2 mt-16 max-[768px]:mt-10">
                         <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
                             <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
                                 <div class="basis-1/3 max-[768px]:basis-full">
-                                    <img src="/pict.png" alt="my pict">
+                                    <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Background</p>
                                 </div>
                                 <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
-                                    <p class="text-xs font-thin">
-                                        Very enthusiastic about Web Programming and UI/UX Design. Possess knowledge and skills in software development, including the implementation of HTML, CSS, Javascript, and PHP during professional internships. Additionally, I understand the importance of UI/UX Design in creating a positive user experience.</p>
+                                    <img id="my-pic" src="/My Pic.jpg" alt="my pic" class="mb-7 rounded-xl grayscale z-0">
+                                    <p class="font-thin">
+                                        My name is Nickymicko Ayub, possessing knowledge and skills in software development, including the implementation of HTML, CSS, Javascript, and PHP during professional internships. <br><br> Additionally, I understand the importance of UI/UX Design in creating a positive user experience.</p>
                                 </div>
                             </div>
                         </div>
+                </section>
+
+                <section id="skills" class="mx-auto mb-20 py-5 px-2 mt-8 max-[768px]:mt-10">
+                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
+                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
+                            <div class="basis-1/3 max-[768px]:basis-full">
+                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Skillsets</p>
+                            </div>
+                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
+                                <div class="flex flex-wrap">
+                                    <div class="basis-1/2">
+                                        <p class=" mb-2">Web Developer</p>
+                                        <ul class="list-disc p-5">
+                                            <li><p class=" font-thin mb-2">Take project requirements and turn them into functional websites</p></li>
+                                            <li><p class=" font-thin mb-2">Apply certain language (PHP, Javascript, Python) and framework (Laravel, CodeIgniter, Flask, Bootstrap, Tailwind, Astro) of web programming.</p></li>
+                                        </ul>
+                                    </div>
+                                    <div class="basis-1/2">
+                                        <p class=" mb-2">UI/UX Design</p>
+                                        <ul class="list-disc p-5">
+                                            <li><p class="font-thin mb-2">Responsible for the design of the user interfaces of the website</p></li>
+                                            <li><p class="font-thin mb-2">Comprehending user behavior and translating them into an intuitive layout for a seamless web experience</p></li>
+                                            <li><p class="font-thin">Proficiency in using prototyping tools: Sketch, Figma, XD.</p></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="education" class="mx-auto mb-20 py-5 px-2 mt-8 max-[768px]:mt-10">
+                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
+                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
+                            <div class="basis-1/3 max-[768px]:basis-full">
+                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Education</p>
+                            </div>
+                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
+                                <div class="flex flex-wrap mb-10">
+                                    <div class="basis-2/3">
+                                        <p class=" mb-2">Software Engineering</p>
+                                        <p class="font-thin">Department of Information Technology - State Vocational High School 40 Jakarta</p>
+                                    </div>
+                                    <div class="basis-1/3">
+                                        <p class="mb-2 text-end">2021 - 2024</p>
+                                        <p class="font-thin text-end">Jakarta, Indonesia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="education" class="mx-auto mb-20 py-5 px-2 max-[768px]:mt-10">
+                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
+                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
+                            <div class="basis-1/3 max-[768px]:basis-full">
+                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Work Experience</p>
+                            </div>
+                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
+                                <div class="flex flex-wrap">
+                                    <div class="basis-1/2 pr-2">
+                                        <img id="exp-1" src="/Experience 1.jpg" alt="my pic" class="mb-7 rounded-lg grayscale">
+                                    </div>
+                                    <div class="basis-1/2 pl-2">
+                                        <img id="exp-2" src="/Experience 2.jpg" alt="my pic" class="mb-7 rounded-lg grayscale">
+                                    </div>
+                                    <div class="basis-2/3">
+                                        <p class=" mb-1">SUDIN Kominfotik Jakarta Timur</p>
+                                        <p class="font-thin mb-2">Internship Web Developer</p>
+                                    </div>
+                                    <div class="basis-1/3">
+                                        <p class="mb-1 text-end">Jan - March 2023</p>
+                                        <p class="font-thin text-end">Jakarta, Indonesia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </section>
     </main>
 </Layout>
