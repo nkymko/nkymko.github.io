@@ -1,127 +1,368 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro'
+import Nav from '../components/Nav.astro';
 
-const title = "Nkymko's Website."
+const title = "Nickymicko Ayub — Software Engineer & UI/UX Designer";
+
+// ---------- Data ----------
+const experiences = [
+	{
+		company: "PT. Denso Manufacturing Indonesia",
+		location: "Bekasi · On-site",
+		role: "Software Engineer",
+		period: "Nov 2024 — Present",
+		current: true,
+		summary:
+			"Lead dev for the Quality Management Center. My job is basically to look at the boring, manual stuff QC does every day and make software that does it instead.",
+		points: [
+			"Built QC-Weave (Laravel 12 + Inertia.js) — an internal QC platform with live dashboards and auto email alerts. Shaved ~30% off daily reporting time.",
+			"Bolted an IoT module onto it over MQTT to watch machines in real time, work out OEE on its own, and keep an eye on inspector output.",
+			"Made a visual inspection tool with SIFT + OCR that checks product features and reads text, so people stop squinting at parts all day.",
+			"Wired the QC system into SharePoint through Power Automate so documents file themselves to the cloud.",
+		],
+		stack: ["Laravel 12", "Inertia.js", "MQTT", "SIFT / OCR", "Power Automate"],
+	},
+	// {
+	// 	company: "PT. Denso Manufacturing Indonesia",
+	// 	location: "Bekasi · On-site",
+	// 	role: "Engineering Trainee",
+	// 	period: "Aug 2024 — Nov 2024",
+	// 	current: false,
+	// 	summary:
+	// 		"Three intense months in the DMIA Best Student program, getting my hands dirty with how a factory actually runs end to end.",
+	// 	points: [
+	// 		"Picked up PLC programming and industrial control logic.",
+	// 		"Real shop-floor basics too — soldering, electrical systems, measurements, assembly.",
+	// 	],
+	// 	stack: ["PLC", "Industrial Control", "Mechanics"],
+	// },
+	{
+		company: "Bambusa Education",
+		location: "East Jakarta · Internship",
+		role: "IT Developer",
+		period: "Mar 2024 — Jun 2024",
+		current: false,
+		summary: "Helped push IT development forward across the education platform.",
+		points: [],
+		stack: ["IT Development"],
+	},
+	{
+		company: "Dinas Kominfotik Provinsi DKI Jakarta",
+		location: "Jakarta · Hybrid",
+		role: "Full Stack Developer",
+		period: "Jan 2023 — Sep 2023",
+		current: false,
+		summary: "Shipped full-stack web features, from the database all the way to the screen.",
+		points: [],
+		stack: ["Database Design", "Web"],
+	},
+];
+
+const education = [
+	{ school: "BINUS University", degree: "Bachelor of Science, Computer Science", period: "2026 — 2030" },
+	{ school: "SMK Negeri 40 Jakarta", degree: "Software Engineering Diploma", period: "2021 — 2024" },
+];
+
+const certifications = [
+	{ title: "Software Development", issuer: "BNSP", date: "2024 — 2027" },
+	{ title: "UI/UX Designer", issuer: "BNSP", date: "2023 — 2026" },
+];
+
+const awards = [
+	{ title: "Best Monthly Suggestion System", issuer: "PT. Denso Manufacturing Indonesia", date: "2026" },
+	{ title: "1st — Web Design, T8chnofest", issuer: "SMA Negeri 8 Jakarta", date: "2023" },
+	{ title: "2nd — LKS Cyber Security", issuer: "Pemprov DKI Jakarta", date: "2023" },
+	{ title: "2nd — Cloud Computing Club", issuer: "Sagasitas · AWS · Pemprov DKI", date: "2023" },
+];
+
+const skills = [
+	"Laravel", "Inertia.js", "Python", "JavaScript", "Flask", "Tailwind CSS",
+	"Astro", "MQTT / IoT", "SIFT & OCR", "Automation", "PLC",
+	"User Research", "UI Design", "Figma",
+];
+
+const socials = [
+	{ label: "Email", value: "nickymickoayub@gmail.com", href: "mailto:nickymickoayub@gmail.com" },
+	{ label: "GitHub", value: "github.com/nkymko", href: "https://github.com/nkymko" },
+];
 ---
 
 <Layout title={title}>
-	<div id="bg-gradient">
-        <div class="gradient" id="g-1" style="opacity: 1;"></div>
-        <div class="gradient" id="g-2" style="opacity: 0;"></div>
-        <div class="gradient" id="g-3" style="opacity: 0;"></div>
-    </div>
+	<div id="bg-glow"></div>
 
-    <Nav />
+	<Nav />
 
-    <main class="container mx-auto max-w-5xl">
-                <section id="introduction" class="mb-64 mx-auto px-2 mt-32 max-[768px]:mt-10">
-					<div class="flex flex-wrap">
-						<div class="max-[768px]:border-0">
-                            <h1 class="text-7xl mt-8 mb-16 max-[768px]:text-4xl max-[768px]:mb-8 max-[768px]:leading-10">Hi, I'm <span class="font-bold underline">Nicky</span>! <br> I'm a Junior Website Developer</h1>
-							<div id="btn-grp" class="flex flex-wrap gap-2">
-								<a href="#" class="py-4 px-5 border border-sky-600  hover:bg-sky-600 transition ease-in-out duration-300">Check out my resume</a>
-								<!-- <a href="#" class="py-4 px-5 border border-sky-600 bg-sky-600 text-sm hover:bg-sky-800 hover:border-sky-800 transition ease-in-out duration-300">Contact Info</a> -->
+	<main id="top" class="mx-auto max-w-3xl px-6">
+		<!-- ================= HERO ================= -->
+		<section
+			id="introduction"
+			class="min-h-[88vh] flex flex-col justify-center pt-28 pb-16"
+		>
+			<p class="reveal section-label mb-10">hi</p>
+			<h1
+				class="reveal text-5xl md:text-7xl font-semibold leading-[1.08] tracking-tight mb-8 max-[768px]:text-4xl"
+				data-reveal-delay="60"
+			>
+				I teach machines<br class="hidden md:block" />
+				to handle the tedious,<br class="hidden md:block" />
+				<span class="text-gradient">so people don't have to.</span>
+			</h1>
+			<p
+				class="reveal text-lg font-light text-slate-400 max-w-md mb-12 leading-relaxed"
+				data-reveal-delay="140"
+			>
+				Nickymicko Ayub. Somewhere between debugging code and daydreaming of coffee hills. In no rush either way.
+			</p>
+			<div class="reveal flex flex-wrap gap-6 text-sm" data-reveal-delay="220">
+				<a
+					href="#experience"
+					class="group inline-flex items-center gap-2 text-slate-200 hover:text-sky-400 transition-colors"
+				>
+					See the work
+					<span class="group-hover:translate-x-1 transition-transform">→</span>
+				</a>
+				<a
+					href="mailto:nickymickoayub@gmail.com"
+					class="text-slate-500 hover:text-slate-200 transition-colors"
+				>
+					Get in touch
+				</a>
+			</div>
+		</section>
+
+		<!-- ================= ABOUT ================= -->
+		<section id="about" class="py-20 scroll-mt-24 border-t border-slate-800/60">
+			<p class="section-label reveal mb-10 pt-4">background</p>
+			<div class="flex flex-col gap-8">
+				<img
+					src="/My Pic.jpg"
+					alt="Nickymicko Ayub"
+					data-degray
+					class="reveal rounded-lg grayscale w-full aspect-[16/10] object-cover"
+				/>
+				<p class="reveal text-xl md:text-2xl font-light leading-relaxed text-slate-200 max-w-2xl" data-reveal-delay="60">
+					I'm <span class="text-slate-100">Nickymicko Ayub</span>, a Software
+					Engineer who turns repetitive, manual processes into software people
+					actually enjoy using. But one day, i'll be a coffee farmer, letting the beans do the slow work instead.
+				</p>
+			</div>
+		</section>
+
+		<!-- ================= EXPERIENCE (accordion) ================= -->
+		<section id="experience" class="py-20 scroll-mt-24 border-t border-slate-800/60">
+			<p class="section-label reveal mb-10 pt-4">work</p>
+
+			<div class="divide-y divide-slate-800/60">
+				{
+					experiences.map((exp, i) => (
+						<div class="exp-item group reveal" data-reveal-delay={(i % 2) * 60}>
+							<button
+								type="button"
+								class="exp-trigger w-full text-left flex items-baseline gap-4 py-5 cursor-pointer select-none"
+								aria-expanded="false"
+							>
+								<span class="text-xs text-slate-600 tabular-nums w-28 shrink-0 hidden sm:block">
+									{exp.period}
+								</span>
+								<span class="flex-1">
+									<span class="flex items-center gap-2.5">
+										<span class="text-lg md:text-xl text-slate-100 group-hover:text-sky-400 transition-colors">
+											{exp.role}
+										</span>
+										{exp.current && (
+											<span class="h-1.5 w-1.5 rounded-full bg-sky-500 animate-pulse" />
+										)}
+									</span>
+									<span class="block text-sm text-slate-500 mt-0.5">{exp.company}</span>
+									<span class="block text-xs text-slate-600 mt-1 sm:hidden">{exp.period}</span>
+								</span>
+								<span class="chevron text-slate-600 group-hover:text-slate-300 transition-transform duration-300 shrink-0 mt-1">
+									↓
+								</span>
+							</button>
+
+							<div class="exp-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+								<div class="overflow-hidden">
+									<div class="pl-0 sm:pl-32 pb-6 -mt-1">
+										<p class="text-slate-400 font-light leading-relaxed">{exp.summary}</p>
+										{exp.points.length > 0 && (
+											<ul class="mt-4 space-y-2">
+												{exp.points.map((p) => (
+													<li class="flex gap-3 text-sm text-slate-400 font-light leading-relaxed">
+														<span class="text-sky-500/70 shrink-0">—</span>
+														<span>{p}</span>
+													</li>
+												))}
+											</ul>
+										)}
+										<div class="flex flex-wrap gap-x-4 gap-y-1 mt-4 text-xs text-slate-500">
+											{exp.stack.map((tag, idx) => (
+												<span>
+													{tag}
+													{idx < exp.stack.length - 1 && <span class="text-slate-700 ml-4">/</span>}
+												</span>
+											))}
+										</div>
+									</div>
+								</div>
 							</div>
-                        </div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- ================= SKILLS ================= -->
+		<section id="skills" class="py-20 scroll-mt-24 border-t border-slate-800/60">
+			<p class="section-label reveal mb-10 pt-4">skills</p>
+			<div class="reveal flex flex-wrap gap-2.5">
+				{
+					skills.map((s) => (
+						<span class="text-sm px-3.5 py-1.5 rounded-full border border-slate-700/70 text-slate-300 hover:border-sky-500 hover:text-sky-300 transition-colors">
+							{s}
+						</span>
+					))
+				}
+			</div>
+		</section>
+
+		<!-- ================= EDUCATION + CERTS ================= -->
+		<section id="education" class="py-20 scroll-mt-24 border-t border-slate-800/60">
+			<div class="grid sm:grid-cols-2 gap-x-12 gap-y-12">
+				<div>
+					<p class="section-label reveal mb-8 pt-4">education</p>
+					<div class="divide-y divide-slate-800/60">
+						{
+							education.map((ed, i) => (
+								<div class="reveal py-4" data-reveal-delay={i * 60}>
+									<div class="flex items-baseline justify-between gap-3">
+										<p class="text-slate-100">{ed.school}</p>
+										<p class="text-xs text-slate-600 tabular-nums shrink-0">{ed.period}</p>
+									</div>
+									<p class="text-sm text-slate-500 font-light mt-1">{ed.degree}</p>
+								</div>
+							))
+						}
 					</div>
-                </section>
-        
-                <section id="about" class="mx-auto mb-20 py-5 px-2 mt-16 max-[768px]:mt-10">
-                        <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
-                            <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
-                                <div class="basis-1/3 max-[768px]:basis-full">
-                                    <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Background</p>
-                                </div>
-                                <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
-                                    <img id="my-pic" src="/My Pic.jpg" alt="my pic" class="mb-7 rounded-xl grayscale z-0">
-                                    <p class="font-thin">
-                                        My name is Nickymicko Ayub, possessing knowledge and skills in software development, including the implementation of HTML, CSS, Javascript, and PHP during professional internships. <br><br> Additionally, I understand the importance of UI/UX Design in creating a positive user experience.</p>
-                                </div>
-                            </div>
-                        </div>
-                </section>
+				</div>
+				<div>
+					<p class="section-label reveal mb-8 pt-4">certifications</p>
+					<div class="divide-y divide-slate-800/60">
+						{
+							certifications.map((c, i) => (
+								<div class="reveal py-4" data-reveal-delay={i * 60}>
+									<div class="flex items-baseline justify-between gap-3">
+										<p class="text-slate-100">{c.title}</p>
+										<p class="text-xs text-slate-600 tabular-nums shrink-0">{c.date}</p>
+									</div>
+									<p class="text-sm text-slate-500 font-light mt-1">{c.issuer}</p>
+								</div>
+							))
+						}
+					</div>
+				</div>
+			</div>
+		</section>
 
-                <section id="skills" class="mx-auto mb-20 py-5 px-2 mt-8 max-[768px]:mt-10">
-                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
-                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
-                            <div class="basis-1/3 max-[768px]:basis-full">
-                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Skillsets</p>
-                            </div>
-                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
-                                <div class="flex flex-wrap">
-                                    <div class="basis-1/2">
-                                        <p class=" mb-2">Web Developer</p>
-                                        <ul class="list-disc p-5">
-                                            <li><p class=" font-thin mb-2">Take project requirements and turn them into functional websites</p></li>
-                                            <li><p class=" font-thin mb-2">Apply certain language (PHP, Javascript, Python) and framework (Laravel, CodeIgniter, Flask, Bootstrap, Tailwind, Astro) of web programming.</p></li>
-                                        </ul>
-                                    </div>
-                                    <div class="basis-1/2">
-                                        <p class=" mb-2">UI/UX Design</p>
-                                        <ul class="list-disc p-5">
-                                            <li><p class="font-thin mb-2">Responsible for the design of the user interfaces of the website</p></li>
-                                            <li><p class="font-thin mb-2">Comprehending user behavior and translating them into an intuitive layout for a seamless web experience</p></li>
-                                            <li><p class="font-thin">Proficiency in using prototyping tools: Sketch, Figma, XD.</p></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+		<!-- ================= AWARDS ================= -->
+		<section id="awards" class="py-20 scroll-mt-24 border-t border-slate-800/60">
+			<p class="section-label reveal mb-10 pt-4">awards</p>
+			<div class="divide-y divide-slate-800/60">
+				{
+					awards.map((a, i) => (
+						<div class="reveal flex items-baseline justify-between gap-4 py-4" data-reveal-delay={(i % 2) * 60}>
+							<div>
+								<p class="text-slate-100">{a.title}</p>
+								<p class="text-sm text-slate-500 font-light mt-1">{a.issuer}</p>
+							</div>
+							<p class="text-xs text-slate-600 tabular-nums shrink-0">{a.date}</p>
+						</div>
+					))
+				}
+			</div>
+		</section>
 
-                <section id="education" class="mx-auto mb-20 py-5 px-2 mt-8 max-[768px]:mt-10">
-                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
-                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
-                            <div class="basis-1/3 max-[768px]:basis-full">
-                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Education</p>
-                            </div>
-                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
-                                <div class="flex flex-wrap mb-10">
-                                    <div class="basis-2/3">
-                                        <p class=" mb-2">SMKN 40 Jakarta</p>
-                                        <p class="font-thin">Department of Information Technology - Software Engineering</p>
-                                    </div>
-                                    <div class="basis-1/3">
-                                        <p class="mb-2 text-end">2021 - 2024</p>
-                                        <p class="font-thin text-end">Jakarta, Indonesia</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+		<!-- ================= CONTACT ================= -->
+		<section id="contact" class="py-24 scroll-mt-24 border-t border-slate-800/60">
+			<div class="reveal">
+				<p class="section-label mb-8 pt-4">what's next</p>
+				<h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6 leading-snug">
+					Got something tedious<br class="hidden sm:block" />
+					worth turning into software?
+				</h2>
+				<div class="flex flex-wrap gap-x-10 gap-y-3 mt-8">
+					{
+						socials.map((s) => (
+							<a
+								href={s.href}
+								target={s.href.startsWith("http") ? "_blank" : undefined}
+								rel="noopener noreferrer"
+								class="group inline-flex items-baseline gap-3"
+							>
+								<span class="text-xs uppercase tracking-widest text-slate-600">{s.label}</span>
+								<span class="text-slate-200 group-hover:text-sky-400 transition-colors border-b border-transparent group-hover:border-sky-500">
+									{s.value}
+								</span>
+							</a>
+						))
+					}
+				</div>
+			</div>
+		</section>
 
-                <section id="education" class="mx-auto mb-20 py-5 px-2 max-[768px]:mt-10">
-                    <div class="py-2 mt-4 max-[768px]:border-0 max-[768px]:mt-0">
-                        <div class="flex flex-wrap gap-5 justify-between py-7 max-[768px]:px-5">
-                            <div class="basis-1/3 max-[768px]:basis-full">
-                                <p class="before:content-['|'] before:mr-7 font-semibold text-lg before:text-sky-600 before:font-extrabold">Work Experience</p>
-                            </div>
-                            <div class="basis-[60%] max-[768px]:basis-full max-[768px]:py-2">
-                                <div class="flex flex-wrap">
-                                    <div class="basis-1/2 pr-2">
-                                        <img id="exp-1" src="/Experience 1.jpg" alt="my pic" class="mb-7 rounded-lg grayscale">
-                                    </div>
-                                    <div class="basis-1/2 pl-2">
-                                        <img id="exp-2" src="/Experience 2.jpg" alt="my pic" class="mb-7 rounded-lg grayscale">
-                                    </div>
-                                    <div class="basis-2/3">
-                                        <p class=" mb-1">SUDIN Kominfotik Jakarta Timur</p>
-                                        <p class="font-thin mb-2">Internship Web Developer</p>
-                                    </div>
-                                    <div class="basis-1/3">
-                                        <p class="mb-1 text-end">Jan - March 2023</p>
-                                        <p class="font-thin text-end">Jakarta, Indonesia</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-    </main>
+		<!-- ================= FOOTER ================= -->
+		<footer class="border-t border-slate-800/60 py-8 flex flex-wrap items-center justify-between gap-2">
+			<p class="text-sm font-medium">
+				nkymko<span class="text-sky-500">.</span>
+			</p>
+			<p class="text-xs text-slate-600 font-light">
+				Nickymicko Ayub · {new Date().getFullYear()}
+			</p>
+		</footer>
+	</main>
 </Layout>
+
+<style>
+	/* Open state: expand the grid row from 0fr to 1fr and flip the chevron. */
+	.exp-item.is-open .exp-panel {
+		grid-template-rows: 1fr;
+	}
+
+	.exp-item.is-open .chevron {
+		transform: rotate(180deg);
+		color: #38bdf8;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.exp-panel {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	// Seamless accordion: toggle a class that drives the grid-rows transition.
+	const items = document.querySelectorAll<HTMLElement>(".exp-item");
+	items.forEach((item) => {
+		const trigger = item.querySelector<HTMLButtonElement>(".exp-trigger");
+		trigger?.addEventListener("click", () => {
+			const willOpen = !item.classList.contains("is-open");
+
+			// Accordion behaviour: close the others for a cleaner feel.
+			items.forEach((other) => {
+				if (other !== item) {
+					other.classList.remove("is-open");
+					other
+						.querySelector(".exp-trigger")
+						?.setAttribute("aria-expanded", "false");
+				}
+			});
+
+			item.classList.toggle("is-open", willOpen);
+			trigger.setAttribute("aria-expanded", String(willOpen));
+		});
+	});
+</script>
 
 <script>
 	import '../scripts/scroll.js';

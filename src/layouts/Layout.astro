@@ -1,81 +1,137 @@
 ---
 interface Props {
 	title: string;
+	description?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title,
+	description = "Nickymicko Ayub — Software Engineer & UI/UX Designer. I build software that replaces manual work.",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv='cache-control' content='no-cache'> 
-		<meta http-equiv='expires' content='0'> 
-		<meta http-equiv='pragma' content='no-cache'>
-		<link rel="icon" type="image/svg+xml" href="/logo.png" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Nickymicko Ayub" />
+		<meta name="theme-color" content="#000000" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content="https://nkymko.github.io" />
+		<meta property="og:image" content="/My Pic.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+
 		<title>{title}</title>
 	</head>
-	<body class="dark:text-slate-200 dark:bg-black font-mono">
+	<body
+		class="bg-black text-slate-200 antialiased selection:bg-sky-500/30 selection:text-white overflow-x-hidden"
+	>
 		<slot />
 	</body>
 </html>
 
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	/* Helvetica-first minimalist stack */
+	html {
+		font-family: "Helvetica Neue", Helvetica, Arial, "Inter", system-ui, sans-serif;
+		scroll-behavior: smooth;
+		background-color: #000;
 	}
 
-	#bg-gradient{
-    z-index: -1;
-    height: 100vh;
-    pointer-events: none;
-    position: fixed;
-    top: 1px;
-    width: 100vw;
+	body {
+		min-height: 100vh;
 	}
 
-	#bg-gradient .gradient{
-		height: 100vh;
-		mix-blend-mode: normal;
+	/* Soft ambient glow, subtle and static */
+	#bg-glow {
+		position: fixed;
+		inset: 0;
+		z-index: -1;
+		pointer-events: none;
+		background:
+			radial-gradient(60% 50% at 75% 0%, rgba(2, 132, 199, 0.16) 0%, rgba(0, 0, 0, 0) 60%),
+			radial-gradient(50% 50% at 15% 100%, rgba(2, 132, 199, 0.08) 0%, rgba(0, 0, 0, 0) 60%);
+	}
+
+	/* Reveal on scroll */
+	.reveal {
 		opacity: 0;
-		position: absolute;
-		transition: opacity 1s ease;
-		width: 100vw;
+		transform: translateY(24px);
+		transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+			transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+		will-change: opacity, transform;
 	}
 
-	#bg-gradient #g-1{
-		background: linear-gradient(45deg, rgba(0,0,0,1) 54%, rgba(255,255,255, 0) 2% , rgba(2,132,199,1) 130%);
+	.reveal.is-visible {
+		opacity: 1;
+		transform: translateY(0);
 	}
 
-	#bg-gradient #g-2{
-		background: linear-gradient(45deg, rgb(0, 0, 0, 1) 54%, rgba(255,255,255, 0) 2% , rgb(5, 150, 105, 1) 130%);
+	@media (prefers-reduced-motion: reduce) {
+		.reveal {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+		html {
+			scroll-behavior: auto;
+		}
 	}
 
-	#bg-gradient #g-3{
-		background: linear-gradient(45deg, rgb(0, 0, 0, 1) 54%, rgba(255,255,255, 0) 2% , #b4145f 130%);
+	img {
+		transition: filter 0.9s ease, transform 0.5s ease;
 	}
 
-	img{
-		transition: 1s ease;
-	}
-
-	.grayscale{
-		-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+	.grayscale {
+		-webkit-filter: grayscale(100%);
 		filter: grayscale(100%);
+	}
+
+	/* Gradient text accent */
+	.text-gradient {
+		background: linear-gradient(90deg, #38bdf8, #0284c7 60%, #e2e8f0);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.section-label {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.4rem;
+		font-size: 0.95rem;
+		font-weight: 400;
+		letter-spacing: 0;
+		text-transform: none;
+		color: #7dd3fc;
+	}
+
+	.section-label::before {
+		content: "//";
+		color: #0ea5e9;
+		font-weight: 500;
+	}
+
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: #000;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #1f2937;
+		border-radius: 9999px;
+		border: 2px solid #000;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #0284c7;
 	}
 </style>

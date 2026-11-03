@@ -5,8 +5,8 @@ export default {
 	theme: {
 		extend: {},
 		fontFamily: {
-			mono: ['JetBrains Mono', 'monospace']
-		  }
+			sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'Inter', 'system-ui', 'sans-serif'],
+		},
 	},
 	plugins: [],
 }
